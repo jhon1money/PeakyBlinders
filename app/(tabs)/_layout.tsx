@@ -1,37 +1,75 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import React, { ElementType } from "react";
+import { Tabs } from "expo-router";
+import { FontAwesome6 } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
 
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+const TabsLayout = () => {
+  const addIcons = (Icon: ElementType, name: string) => ({
+    tabBarIcon: () => <Icon name={name} size={24} color="black" />,
+  });
 
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-      }}>
+    <Tabs screenOptions={{ headerShown: false }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
+          tabBarIcon: () => (
+            <MaterialCommunityIcons name="movie-roll" size={24} color="black" />
           ),
+          title: "Portada",
+        }}
+      />
+
+      <Tabs.Screen
+        name="personajes"
+        options={{
+          tabBarIcon: () => (
+            <FontAwesome5 name="person-booth" size={24} color="black" />
+          ),
+          title: "Personajes",
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="momentos"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+          tabBarIcon: () => (
+            <MaterialIcons name="movie-filter" size={24} color="black" />
           ),
+          title: "Momentos",
         }}
       />
+
+      <Tabs.Screen
+        name="acerca"
+        options={{
+          tabBarIcon: () => (
+            <MaterialCommunityIcons name="home-roof" size={24} color="black" />
+          ),
+          title: "Acerca",
+        }}
+      />
+      <Tabs.Screen 
+      name="vida"
+        options={{
+          tabBarIcon: () => (
+            <Ionicons name="happy-outline" size={24} color="black" />
+          ),
+          title: "Vida",
+        }} />
+       <Tabs.Screen 
+      name="contratame"
+        options={{
+          tabBarIcon: () => (
+            <FontAwesome6 name="hire-a-helper" size={24} color="black" />
+          ),
+          title: "Contratame",
+        }} />
     </Tabs>
   );
-}
+};
+
+export default TabsLayout;
