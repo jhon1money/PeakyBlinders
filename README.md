@@ -1,5 +1,7 @@
 # Welcome to your Expo app 👋
 
+- [Descarga apk](https://docs.expo.dev/develop/development-builds/introduction/](https://expo.dev/accounts/jhonpac/projects/PeakyNlinders/builds/86ca9dd5-bd15-4751-b692-71bef93bd442))
+
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
 ## Get started
